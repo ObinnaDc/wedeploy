@@ -1,0 +1,43 @@
+---
+const clients = [
+  { src: '/assets/client-jobmate.svg', alt: 'Jobmate' },
+  { src: '/assets/client-barter-black.svg', alt: 'Barter Black' },
+  { src: '/assets/client-commshq.svg', alt: 'Comms HQ' },
+  { src: '/assets/client-newnorth.svg', alt: 'New North' },
+  { src: '/assets/client-bysignal.svg', alt: 'Bysignal' },
+  { src: '/assets/client-perksome.svg', alt: 'Perksome' },
+];
+---
+
+<section class="pt-8 sm:pt-14">
+  <div class="mx-auto max-w-[900px] px-6">
+    <div class="bg-hero-grid relative min-h-[500px] overflow-hidden px-4 pt-[110px] text-center sm:min-h-[520px]">
+      <div class="absolute left-[9%] top-[70px] h-11 w-11 bg-slate-100/60"></div>
+      <div class="absolute right-[17%] top-[122px] h-11 w-11 bg-slate-100/60"></div>
+      <div class="absolute bottom-[126px] left-[19%] h-11 w-11 bg-slate-100/60"></div>
+
+      <h1 class="mx-auto max-w-[680px] text-[42px] font-normal leading-[1.15] tracking-normal text-black sm:text-[52px]">
+        Bring your ideas to <em class="font-normal text-deploy-blue">life</em> in the fastest way possible
+      </h1>
+      <p class="mx-auto mt-5 max-w-[720px] text-[18px] leading-[1.45] text-[#41464d]">
+        We connect you to an expert product team that is dedicated and saves you money on custom software
+        development. Your product ideas can start coming to life in weeks instead of months.
+      </p>
+      <a
+        href="#pricing"
+        class="mt-7 inline-flex rounded-[8px] bg-deploy-navy px-5 py-3.5 text-[15px] font-bold text-white transition hover:bg-deploy-blue"
+      >
+        Share my Idea
+      </a>
+    </div>
+  </div>
+
+  <div class="mx-auto mt-4 max-w-[900px] px-6 pb-[74px] text-center">
+    <h2 class="text-[40px] font-normal leading-tight">Our clients</h2>
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-x-14 gap-y-8 opacity-55 grayscale">
+      {clients.map((client) => (
+        <img src={client.src} alt={client.alt} class="max-h-8 w-auto object-contain" loading="lazy" />
+      ))}
+    </div>
+  </div>
+</section>

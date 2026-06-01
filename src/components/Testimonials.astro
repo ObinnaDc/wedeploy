@@ -1,0 +1,69 @@
+---
+const testimonials = [
+  {
+    name: 'Ken Savage',
+    role: 'The Product Launch Guy',
+    quote: "There's 2 things I need from a bubble developer... communication and knowledge. Ebuka and Yinka and their team have been very capable of developing anything I've dreamed up. I appreciate your work and helping me take my ideas and horrible explanations and put it into working MVPs.",
+    avatar: '/assets/avatar-user.png',
+  },
+  {
+    name: 'Pixelops',
+    role: 'Pixelops Team',
+    quote: "I love the design fidelity I received for my build. I'd happily recommend this dev team. They know what they are doing!",
+    mark: 'P',
+  },
+  {
+    name: 'Hampton Founder',
+    role: '$2 billion in exits',
+    quote: 'Quickly understood the project and very independent in delivering it. Helped make an idea into something real that helped us understand whether the product was viable.',
+    avatar: '/assets/avatar-user.png',
+  },
+  {
+    name: 'Nicole Murphy',
+    role: 'Founder and CEO Barter Black',
+    quote: "I don't think I could have chose a better team for my project. With all the complex request my site requires, they took it all on like pros! I absolutely loved having several people working on multiple task making completely it as efficient as possible.",
+    avatar: '/assets/avatar-nicole.jpeg',
+  },
+  {
+    name: 'Skill3',
+    role: 'Copenhagen Startup',
+    quote: 'I think the Deploy Studio team are good at listening to the feedback we have. At the same time I think you have been quick and effective.',
+    logo: '/assets/skill3-logo.svg',
+  },
+  {
+    name: 'Fintech Founder',
+    role: 'Founder and CEO',
+    quote: 'It was affordable and the team was responsive in delivering what we agreed on.',
+    avatar: '/assets/avatar-user.png',
+  },
+  {
+    name: 'Daniel Bevan',
+    role: 'CEO, Daniel Bevan Designs',
+    quote: "Deploy Studio allows experienced developers like myself to focus on core functionality and product optimization while they spend time building in the editor and producing high-fidelity Figma designs. The team leaders are fantastic communicators that help everyone involved get on the same page. I'll be working with these guys for a very long time!",
+    avatar: '/assets/avatar-daniel.png',
+  },
+];
+---
+
+<section class="bg-[#fbfbfc] py-[98px]">
+  <div class="mx-auto max-w-[1120px] px-6 xl:px-0">
+    <h2 class="text-center text-[40px] font-normal leading-tight">What our clients are saying</h2>
+
+    <div class="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3">
+      {testimonials.map((item) => (
+        <article class="mb-6 break-inside-avoid rounded-[10px] border border-deploy-line bg-white p-6 shadow-soft">
+          <div class="flex items-center gap-3">
+            {item.avatar && <img src={item.avatar} alt="" class="h-10 w-10 rounded-full object-cover" loading="lazy" />}
+            {item.logo && <img src={item.logo} alt="" class="h-9 w-12 object-contain" loading="lazy" />}
+            {item.mark && <div class="flex h-10 w-10 items-center justify-center rounded-full bg-black text-[28px] font-bold text-white">{item.mark}</div>}
+            <div>
+              <h3 class="text-[16px] font-bold">{item.name}</h3>
+              <p class="text-[16px] text-[#73777f]">{item.role}</p>
+            </div>
+          </div>
+          <p class="mt-5 text-[16px] leading-[1.45] text-[#343941]">{item.quote}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

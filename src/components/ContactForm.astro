@@ -1,0 +1,80 @@
+---
+const fit = [
+  {
+    icon: '/assets/icon-bulb.svg',
+    title: 'Startup Founders',
+    text: "Have a great idea but don't have the technical skills or deep pockets to hire expensive agencies or developers.",
+  },
+  {
+    icon: '/assets/icon-briefcase.svg',
+    title: 'C-Level Executives',
+    text: 'You have seen an opportunity and have domain expertise but need a cost effective way to test the market.',
+  },
+  {
+    icon: '/assets/icon-star.svg',
+    title: 'Serial Entrepreneurs',
+    text: 'You have experience building & launching multiple businesses and are looking for a new technical partner.',
+  },
+];
+
+const faqs = [
+  ['How do I get started?', 'Once we have had an initial call to know more about you and your project, you subscribe to a plan and we invite you to our slack and get started immediately with your product scoping brief.'],
+  ['What if I am not satisfied with results?', 'You can pause or cancel anytime, and we keep the scope transparent so priorities stay aligned.'],
+  ['What is a development request?', 'A request is a scoped design, Bubble, or product task your assigned team can work through and ship.'],
+  ['What is the turn around time like?', 'Most requests are delivered in one to three business days depending on complexity.'],
+  ['Why are you called Deploy Studio?', 'The name reflects our focus on helping founders move from idea to deployed product quickly.'],
+  ['Why choose Deploy Studio?', 'You get an experienced no-code product team, strong communication, and flexible pricing without long hiring cycles.'],
+];
+---
+
+<section id="contact" class="bg-white pt-[52px]">
+  <div class="mx-auto max-w-[1120px] px-6 text-center xl:px-0">
+    <p class="text-[14px] font-normal uppercase tracking-[0.08em] text-deploy-blue">Reach out to us</p>
+    <h2 class="mt-4 text-[40px] font-normal leading-tight">We are a great fit for you</h2>
+
+    <div class="mt-14 grid gap-10 md:grid-cols-3">
+      {fit.map((item) => (
+        <article class="mx-auto max-w-[330px]">
+          <img src={item.icon} alt="" class="mx-auto h-7 w-7" loading="lazy" />
+          <h3 class="mt-6 text-[24px] font-normal text-[#424850]">{item.title}</h3>
+          <p class="mt-3 text-[16px] leading-[1.45] text-[#343941]">{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="mt-[104px] bg-[#fbfbfc] py-[82px]">
+    <div class="mx-auto max-w-[840px] px-6">
+      <h2 class="text-center text-[40px] font-normal leading-tight">Frequently asked questions</h2>
+      <div class="mt-10 space-y-2">
+        {faqs.map(([question, answer], index) => (
+          <details class="group rounded-[10px] border border-deploy-line bg-white p-4 open:pb-6" open={index === 0}>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-bold">
+              {question}
+              <span class="text-[20px] font-normal group-open:rotate-180">&#8964;</span>
+            </summary>
+            <p class="mt-4 text-[17px] leading-[1.45] text-[#4d535b]">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[1120px] px-6 py-[110px] xl:px-0">
+    <div class="bg-dark-grid rounded-[10px] px-6 py-[76px] text-center text-white">
+      <h2 class="text-[34px] font-bold leading-tight sm:text-[40px]">
+        Ready to bring your ideas to <em>life?</em>
+      </h2>
+      <p class="mx-auto mt-5 max-w-[640px] text-[16px] leading-[1.45]">
+        Your product ideas can start coming to life in weeks instead of months. Embrace the journey ahead and turn your ideas into a reality!
+      </p>
+      <a
+        href="mailto:hello@wedeploy.studio"
+        class="mt-10 inline-flex items-center gap-3 rounded-[8px] bg-deploy-blue px-6 py-4 text-[16px] font-bold text-white transition hover:bg-white hover:text-deploy-navy"
+      >
+        <span aria-hidden="true">&#9742;</span>
+        Book a call
+      </a>
+    </div>
+  </div>
+</section>

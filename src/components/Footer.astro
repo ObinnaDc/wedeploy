@@ -1,0 +1,24 @@
+---
+const social = [
+  { src: '/assets/social-facebook.svg', alt: 'Facebook' },
+  { src: '/assets/social-twitter.svg', alt: 'Twitter' },
+  { src: '/assets/social-instagram.svg', alt: 'Instagram' },
+  { src: '/assets/social-linkedin.svg', alt: 'LinkedIn' },
+];
+---
+
+<footer class="border-t border-deploy-line bg-white">
+  <div class="mx-auto flex max-w-[1120px] flex-col gap-8 px-6 py-9 sm:flex-row sm:items-center sm:justify-between xl:px-0">
+    <div>
+      <img src="/assets/deploy-logo.svg" alt="Deploy" class="h-[32px] w-auto" />
+      <p class="mt-6 text-[14px] text-[#555b63]">&copy; 2026 Deploy Studio. All rights reserved.</p>
+    </div>
+    <div class="flex items-center gap-4">
+      {social.map((item) => (
+        <a href="#" aria-label={item.alt} class="block transition hover:opacity-75">
+          <img src={item.src} alt="" class="h-8 w-8" loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

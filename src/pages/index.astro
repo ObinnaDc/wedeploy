@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Pricing from '../components/Pricing.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Deploy Studio connects founders to an expert product team that builds custom software fast with no-code."
+    />
+    <title>Deploy Studio</title>
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <Hero />
+      <Services />
+      <Portfolio />
+      <Testimonials />
+      <Pricing />
+      <ContactForm />
+    </main>
+    <Footer />
+  </body>
+</html>

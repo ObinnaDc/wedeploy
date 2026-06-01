@@ -1,0 +1,33 @@
+---
+const links = [
+  { label: 'Home', href: '#' },
+  { label: 'Contact Us', href: '#contact' },
+];
+---
+
+<header class="mx-auto flex h-[104px] w-full max-w-[1120px] items-center justify-between px-6 sm:px-8 xl:px-0">
+  <a href="#" aria-label="Deploy Studio home" class="shrink-0">
+    <img src="/assets/deploy-logo.svg" alt="Deploy" class="h-[32px] w-auto" />
+  </a>
+
+  <nav class="hidden items-center gap-8 text-[16px] sm:flex">
+    {links.map((link, index) => (
+      <a
+        href={link.href}
+        class:list={[
+          'transition hover:text-deploy-blue',
+          index === 0 ? 'font-bold text-deploy-ink' : 'font-normal text-[#5b5f66]',
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+
+  <a
+    href="#contact"
+    class="rounded-[8px] bg-[#141a37] px-5 py-3.5 text-[15px] font-bold text-white transition hover:bg-deploy-blue"
+  >
+    Book a call
+  </a>
+</header>

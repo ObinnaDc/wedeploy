@@ -1,0 +1,60 @@
+<svg width="3000" height="1000" viewBox="0 0 3000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_4_863)">
+<rect width="3000" height="1000" fill="#23222D"/>
+<line y1="99.5" x2="3000" y2="99.5" stroke="#383641"/>
+<line y1="199.5" x2="3000" y2="199.5" stroke="#383641"/>
+<line y1="299.5" x2="3000" y2="299.5" stroke="#383641"/>
+<line y1="399.5" x2="3000" y2="399.5" stroke="#383641"/>
+<line y1="499.5" x2="3000" y2="499.5" stroke="#383641"/>
+<line y1="499" x2="3000" y2="499" stroke="#383641" stroke-width="2"/>
+<line y1="599.5" x2="3000" y2="599.5" stroke="#383641"/>
+<line y1="699.5" x2="3000" y2="699.5" stroke="#383641"/>
+<line y1="799.5" x2="3000" y2="799.5" stroke="#383641"/>
+<line y1="899.5" x2="3000" y2="899.5" stroke="#383641"/>
+<line y1="999.5" x2="3000" y2="999.5" stroke="#383641"/>
+<line y1="999" x2="3000" y2="999" stroke="#383641" stroke-width="2"/>
+<path d="M0 0V1000" stroke="#383641"/>
+<path d="M0 0V1000" stroke="#383641" stroke-width="2"/>
+<path d="M100 0V1000" stroke="#383641"/>
+<path d="M200 0V1000" stroke="#383641"/>
+<path d="M300 0V1000" stroke="#383641"/>
+<path d="M400 0V1000" stroke="#383641"/>
+<path d="M500 0V1000" stroke="#383641"/>
+<path d="M500 0V1000" stroke="#383641" stroke-width="2"/>
+<path d="M600 0V1000" stroke="#383641"/>
+<path d="M700 0V1000" stroke="#383641"/>
+<path d="M800 0V1000" stroke="#383641"/>
+<path d="M900 0V1000" stroke="#383641"/>
+<path d="M1000 0V1000" stroke="#383641"/>
+<path d="M1000 0V1000" stroke="#383641" stroke-width="2"/>
+<path d="M1100 0V1000" stroke="#383641"/>
+<path d="M1200 0V1000" stroke="#383641"/>
+<path d="M1300 0V1000" stroke="#383641"/>
+<path d="M1400 0V1000" stroke="#383641"/>
+<path d="M1500 0V1000" stroke="#383641"/>
+<path d="M1500 0V1000" stroke="#383641" stroke-width="2"/>
+<path d="M1600 0V1000" stroke="#383641"/>
+<path d="M1700 0V1000" stroke="#383641"/>
+<path d="M1800 0V1000" stroke="#383641"/>
+<path d="M1900 0V1000" stroke="#383641"/>
+<path d="M2000 0V1000" stroke="#383641"/>
+<path d="M2000 0V1000" stroke="#383641" stroke-width="2"/>
+<path d="M2100 0V1000" stroke="#383641"/>
+<path d="M2200 0V1000" stroke="#383641"/>
+<path d="M2300 0V1000" stroke="#383641"/>
+<path d="M2400 0V1000" stroke="#383641"/>
+<path d="M2500 0V1000" stroke="#383641"/>
+<path d="M2500 0V1000" stroke="#383641" stroke-width="2"/>
+<path d="M2600 0V1000" stroke="#383641"/>
+<path d="M2700 0V1000" stroke="#383641"/>
+<path d="M2800 0V1000" stroke="#383641"/>
+<path d="M2900 0V1000" stroke="#383641"/>
+<path d="M3000 0V1000" stroke="#383641"/>
+<path d="M3000 0V1000" stroke="#383641" stroke-width="2"/>
+</g>
+<defs>
+<clipPath id="clip0_4_863">
+<rect width="3000" height="1000" fill="white"/>
+</clipPath>
+</defs>
+</svg>

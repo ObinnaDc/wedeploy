@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-deploy-ink antialiased;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-hero-grid {
+    background-image:
+      linear-gradient(rgba(10, 19, 34, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 19, 34, 0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  .bg-dark-grid {
+    background-color: #20202b;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 38px 38px;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

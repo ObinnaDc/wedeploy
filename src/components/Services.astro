@@ -1,0 +1,88 @@
+---
+const benefits = [
+  {
+    title: 'We save you money',
+    text: 'We have a team of talented, developers who bring experience & strong technical skills to your project at lower rates.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2H8a2 2 0 0 1 0-4h9" /><path d="M17 14h.01" /></svg>`,
+  },
+  {
+    title: 'We work with the best no-code tool in the market',
+    text: 'We work with the leading platforms for design and no-code development, Figma and Bubble.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8" /><path d="M12 17v4" /><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z" /><path d="M5 5H3v2a4 4 0 0 0 4 4" /><path d="M19 5h2v2a4 4 0 0 1-4 4" /></svg>`,
+  },
+  {
+    title: 'We help you build quickly & flexibly',
+    text: 'Get a complete product team instantly with a simple monthly plan. Skip payroll & compliance hassles.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m5 5 8 7-8 7V5Z" /><path d="m13 5 8 7-8 7V5Z" /></svg>`,
+  },
+];
+
+const services = [
+  {
+    title: 'SaaS Platforms',
+    text: 'Build & launch your software-as-a-service idea as a fully functional product. Our experts build scalable solutions across industries, from sales to wellness.',
+    icon: '/assets/icon-saas.svg',
+  },
+  {
+    title: 'Marketplaces',
+    text: "We bring your marketplace vision to life effortlessly. Whether it's e-commerce, rentals, or services, we'll build the perfect marketplace for your business.",
+    icon: '/assets/icon-marketplace.svg',
+  },
+  {
+    title: 'Internal Tools',
+    text: "Enhance your team's efficiency with tailor-made internal tools, be it a collaborative project management system or a data reporting dashboard.",
+    icon: '/assets/icon-tools.svg',
+  },
+  {
+    title: 'And more',
+    text: "Don't let coding limitations hold you back. Our no-code developers transform your app ideas into powerful digital solutions, from brainstorming to launch.",
+    icon: '/assets/icon-more.svg',
+  },
+];
+---
+
+<section class="border-t border-[#f0f2f5] bg-[#fbfbfc] py-[92px]">
+  <div class="mx-auto max-w-[1120px] px-6 xl:px-0">
+    <div class="text-center">
+      <p class="text-[14px] font-normal uppercase tracking-[0.08em] text-deploy-blue">Let's talk benefits</p>
+      <h2 class="mt-4 text-[38px] font-normal leading-tight sm:text-[40px]">Why work with our talents?</h2>
+    </div>
+
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {benefits.map((item) => (
+        <article class="group min-h-[292px] rounded-[10px] border border-deploy-line bg-white p-6 pt-8 shadow-soft transition duration-200 hover:-translate-y-1 hover:border-[#b7d8ff] hover:bg-[#f6fbff] hover:shadow-[0_22px_55px_rgba(8,119,232,0.12)]">
+          <div class="flex h-12 w-12 items-center justify-center rounded-full border border-deploy-line text-[18px] text-[#b8bec9] transition duration-200 group-hover:border-deploy-blue group-hover:bg-deploy-blue group-hover:text-white group-hover:shadow-[0_10px_24px_rgba(8,119,232,0.2)]">
+            <span set:html={item.icon}></span>
+          </div>
+          <h3 class="mt-16 text-[24px] font-normal leading-[1.15] text-[#343941]">{item.title}</h3>
+          <p class="mt-3 text-[16px] leading-[1.45] text-[#424850]">{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bg-[#fbfbfc] py-[86px]">
+  <div class="mx-auto grid max-w-[1120px] gap-10 px-6 lg:grid-cols-[0.92fr_1.55fr] xl:px-0">
+    <div class="max-w-[390px]">
+      <h2 class="text-[40px] font-normal leading-[1.05]">From MVPs to full fledged web apps</h2>
+      <p class="mt-4 text-[16px] leading-[1.45] text-[#4b5058]">
+        Our no-code developers can help you build your app and take it from idea to prototype to MVP and beyond.
+      </p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      {services.map((service) => (
+        <article class="min-h-[188px] rounded-[10px] border border-deploy-line bg-white p-6 shadow-soft">
+          <div class="flex items-start gap-5">
+            <img src={service.icon} alt="" class="mt-1 h-7 w-7" loading="lazy" />
+            <div>
+              <h3 class="text-[24px] font-normal leading-tight text-[#424850]">{service.title}</h3>
+              <p class="mt-3 text-[16px] leading-[1.45] text-[#4d535b]">{service.text}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
