@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Reach out to Deploy Studio to discuss your product idea, project, or collaboration."
+    />
+    <title>Contact Us | Deploy Studio</title>
+  </head>
+  <body class="bg-white">
+    <div class="border-b border-[#e6e8ee]">
+      <Navbar current="contact" />
+    </div>
+
+    <main>
+      <section class="mx-auto grid max-w-[1120px] gap-10 px-6 pb-[86px] pt-[72px] md:grid-cols-[0.78fr_1.22fr] xl:px-0">
+        <div class="max-w-[315px]">
+          <h1 class="text-[34px] font-bold leading-tight text-black sm:text-[36px]">Reach out to us</h1>
+          <p class="mt-3 text-[14px] leading-[1.45] text-[#303746]">
+            We're keen to hear your thoughts or collaborate with your product idea. Let's get in touch to discuss next steps.
+          </p>
+        </div>
+
+        <form class="rounded-[10px] border border-[#d8dde5] bg-white p-5 shadow-[0_10px_28px_rgba(15,23,42,0.02)]">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="block">
+              <span class="text-[12px] font-bold text-[#111827]">First Name *</span>
+              <input
+                type="text"
+                name="first_name"
+                placeholder="Enter your first name"
+                required
+                class="mt-2 h-10 w-full rounded-[6px] border border-[#d8dde5] px-3 text-[12px] text-[#111827] outline-none transition placeholder:text-[#8a9099] focus:border-deploy-blue focus:ring-2 focus:ring-deploy-blue/10"
+              />
+            </label>
+            <label class="block">
+              <span class="text-[12px] font-bold text-[#111827]">Last Name *</span>
+              <input
+                type="text"
+                name="last_name"
+                placeholder="Enter your last name"
+                required
+                class="mt-2 h-10 w-full rounded-[6px] border border-[#d8dde5] px-3 text-[12px] text-[#111827] outline-none transition placeholder:text-[#8a9099] focus:border-deploy-blue focus:ring-2 focus:ring-deploy-blue/10"
+              />
+            </label>
+          </div>
+
+          <label class="mt-4 block">
+            <span class="text-[12px] font-bold text-[#111827]">Email Address *</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+              class="mt-2 h-10 w-full rounded-[6px] border border-[#d8dde5] px-3 text-[12px] text-[#111827] outline-none transition placeholder:text-[#8a9099] focus:border-deploy-blue focus:ring-2 focus:ring-deploy-blue/10"
+            />
+          </label>
+
+          <label class="mt-4 block">
+            <span class="text-[12px] font-bold text-[#111827]">Message</span>
+            <textarea
+              name="message"
+              placeholder="Say something"
+              rows="8"
+              class="mt-2 w-full resize-none rounded-[6px] border border-[#d8dde5] px-3 py-3 text-[12px] text-[#111827] outline-none transition placeholder:text-[#8a9099] focus:border-deploy-blue focus:ring-2 focus:ring-deploy-blue/10"
+            ></textarea>
+          </label>
+
+          <button
+            type="submit"
+            class="mt-4 rounded-[6px] bg-deploy-navy px-5 py-3 text-[12px] font-bold text-white transition hover:bg-deploy-blue"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
+
+      <section class="mx-auto max-w-[1120px] px-6 pb-[86px] xl:px-0">
+        <div class="bg-dark-grid rounded-[8px] px-6 py-[58px] text-center text-white sm:py-[62px]">
+          <h2 class="text-[28px] font-bold leading-tight sm:text-[32px]">
+            Ready to bring your ideas to <em>life?</em>
+          </h2>
+          <p class="mx-auto mt-4 max-w-[520px] text-[13px] font-bold leading-[1.45]">
+            Your product ideas can start coming to life in weeks instead of months. Embrace the journey ahead and turn your ideas into a reality!
+          </p>
+          <a
+            href="mailto:hello@wedeploy.studio"
+            class="mt-8 inline-flex items-center gap-2 rounded-[6px] bg-deploy-blue px-5 py-3 text-[12px] font-bold text-white transition hover:bg-white hover:text-deploy-navy"
+          >
+            <span aria-hidden="true">&#9742;</span>
+            Book a call
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

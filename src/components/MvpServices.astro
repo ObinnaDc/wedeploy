@@ -1,0 +1,50 @@
+---
+const services = [
+  {
+    title: 'SaaS Platforms',
+    text: 'Build & launch your software-as-a-service idea as a fully functional product. Our experts build scalable solutions across industries, from sales to wellness.',
+    icon: 'assets/icon-saas.svg',
+  },
+  {
+    title: 'Marketplaces',
+    text: "We bring your marketplace vision to life effortlessly. Whether it's e-commerce, rentals, or services, we'll build the perfect marketplace for your business.",
+    icon: 'assets/icon-marketplace.svg',
+  },
+  {
+    title: 'Internal Tools',
+    text: "Enhance your team's efficiency with tailor-made internal tools, be it a collaborative project management system or a data reporting dashboard.",
+    icon: 'assets/icon-tools.svg',
+  },
+  {
+    title: 'And more',
+    text: "Don't let coding limitations hold you back. Our no-code developers transform your app ideas into powerful digital solutions, from brainstorming to launch.",
+    icon: 'assets/icon-more.svg',
+  },
+];
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path}`;
+---
+
+<section class="bg-[#fbfbfc] py-[86px]">
+  <div class="mx-auto grid max-w-[1120px] gap-10 px-6 lg:grid-cols-[0.92fr_1.55fr] xl:px-0">
+    <div class="max-w-[390px]">
+      <h2 class="text-[40px] font-normal leading-[1.05]">From MVPs to full fledged web apps</h2>
+      <p class="mt-4 text-[16px] leading-[1.45] text-[#4b5058]">
+        Our no-code developers can help you build your app and take it from idea to prototype to MVP and beyond.
+      </p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      {services.map((service) => (
+        <article class="min-h-[188px] rounded-[10px] border border-deploy-line bg-white p-6 shadow-soft">
+          <div class="flex items-start gap-5">
+            <img src={asset(service.icon)} alt="" class="mt-1 h-7 w-7" loading="lazy" />
+            <div>
+              <h3 class="text-[24px] font-normal leading-tight text-[#424850]">{service.title}</h3>
+              <p class="mt-3 text-[16px] leading-[1.45] text-[#4d535b]">{service.text}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

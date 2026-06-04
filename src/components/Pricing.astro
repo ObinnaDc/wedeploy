@@ -17,6 +17,7 @@ const plans = [
     featured: true,
   },
 ];
+const contactUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}contact-us/`;
 ---
 
 <section id="pricing" class="bg-white py-[86px]">
@@ -78,7 +79,7 @@ const plans = [
           ))}
         </ul>
         <a
-          href="#contact"
+          href={contactUrl}
           class:list={[
             'mt-auto inline-flex w-full justify-center rounded-[8px] px-5 py-3.5 text-[15px] font-bold transition',
             plan.featured ? 'bg-deploy-blue text-white hover:bg-deploy-navy' : 'bg-deploy-navy text-white hover:bg-deploy-blue',
