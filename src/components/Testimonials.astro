@@ -4,27 +4,27 @@ const testimonials = [
     name: 'Hampton Founder',
     role: '$2 billion in exits',
     quote: 'Quickly understood the project and very independent in delivering it. Helped make an idea into something real that helped us understand whether the product was viable.',
-    avatar: '/assets/avatar-user.png',
+    avatar: 'assets/avatar-user.png',
   },
   {
     name: 'Skill3',
     role: 'Copenhagen Startup',
     quote: 'I think the Deploy Studio team are good at listening to the feedback we have. At the same time I think you have been quick and effective.',
-    logo: '/assets/skill3-logo.svg',
-    preview: '/assets/project-skilltracker.jpg',
+    logo: 'assets/skill3-logo.svg',
+    preview: 'assets/project-skilltracker.jpg',
   },
   {
     name: 'Pixelops',
     role: 'Pixelops Team',
     quote: "I love the design fidelity I received for my build. I'd happily recommend this dev team. They know what they are doing!",
-    avatar: '/assets/avatar-pixelops.png',
-    preview: '/assets/project-homepages.jpg',
+    avatar: 'assets/avatar-pixelops.png',
+    preview: 'assets/project-homepages.jpg',
   },
   {
     name: 'Fintech Founder',
     role: 'Founder and CEO',
     quote: 'It was affordable and the team was responsive in delivering what we agreed on.',
-    avatar: '/assets/avatar-user.png',
+    avatar: 'assets/avatar-user.png',
   },
   {
     name: 'Daniel Bevan',
@@ -33,8 +33,8 @@ const testimonials = [
       'Deploy Studio allows experienced developers like myself to focus on core functionality and product optimization while they spend time building in the editor and producing high-fidelity Figma designs.',
       "The team leaders are fantastic communicators that help everyone involved get on the same page. I'll be working with these guys for a very long time!",
     ],
-    avatar: '/assets/avatar-daniel-bevan.jpeg',
-    preview: '/assets/project-bysignal.jpg',
+    avatar: 'assets/avatar-daniel-bevan.jpeg',
+    preview: 'assets/project-bysignal.jpg',
     largeAvatar: true,
   },
   {
@@ -45,8 +45,8 @@ const testimonials = [
       'I absolutely loved having several people working on multiple task making completely it as efficient as possible.',
       "I won't be going anywhere and they will always take care of any platforms I decide to built.",
     ],
-    avatar: '/assets/avatar-nicole-murphy.jpeg',
-    preview: '/assets/testimonial-nicole-preview.png',
+    avatar: 'assets/avatar-nicole-murphy.jpeg',
+    preview: 'assets/testimonial-nicole-preview.png',
     featuredProfile: true,
     featuredPreview: true,
   },
@@ -54,11 +54,12 @@ const testimonials = [
     name: 'Ken Savage',
     role: 'The Product Launch Guy',
     quote: "There's 2 things I need from a bubble developer... communication and knowledge. Ebuka and Yinka and their team have been very capable of developing anything I've dreamed up. I appreciate your work and helping me take my ideas and horrible explanations and put it into working MVPs.",
-    avatar: '/assets/avatar-ken-savage.jpg',
-    preview: '/assets/project-dealpage.jpg',
+    avatar: 'assets/avatar-ken-savage.jpg',
+    preview: 'assets/project-dealpage.jpg',
     largeAvatar: true,
   },
 ];
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path}`;
 ---
 
 <section class="bg-[#fbfbfc] py-[98px]">
@@ -71,7 +72,7 @@ const testimonials = [
           <div class="flex items-center gap-3">
             {item.avatar && (
               <img
-                src={item.avatar}
+                src={asset(item.avatar)}
                 alt=""
                 class:list={[
                   'rounded-full object-cover',
@@ -80,7 +81,7 @@ const testimonials = [
                 loading="lazy"
               />
             )}
-            {item.logo && <img src={item.logo} alt="" class="h-7 w-11 object-contain" loading="lazy" />}
+            {item.logo && <img src={asset(item.logo)} alt="" class="h-7 w-11 object-contain" loading="lazy" />}
             {item.mark && <div class="flex h-8 w-8 items-center justify-center rounded-full bg-black text-[23px] font-bold text-white">{item.mark}</div>}
             <div>
               <h3 class="text-[14px] font-bold leading-tight">{item.name}</h3>
@@ -97,7 +98,7 @@ const testimonials = [
           {item.preview && (
             <div class="mt-5 flex h-11 items-end">
               <img
-                src={item.preview}
+                src={asset(item.preview)}
                 alt={`${item.name} project preview`}
                 class:list={[
                   '-rotate-6 rounded-[2px] object-cover object-top shadow-[0_8px_18px_rgba(15,23,42,0.12)]',

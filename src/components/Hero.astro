@@ -1,12 +1,13 @@
 ---
 const clients = [
-  { src: '/assets/client-jobmate.svg', alt: 'Jobmate' },
-  { src: '/assets/client-barter-black.svg', alt: 'Barter Black' },
-  { src: '/assets/client-commshq.svg', alt: 'Comms HQ' },
-  { src: '/assets/client-newnorth.svg', alt: 'New North' },
-  { src: '/assets/client-bysignal.svg', alt: 'Bysignal' },
-  { src: '/assets/client-perksome.svg', alt: 'Perksome' },
+  { src: 'assets/client-jobmate.svg', alt: 'Jobmate' },
+  { src: 'assets/client-barter-black.svg', alt: 'Barter Black' },
+  { src: 'assets/client-commshq.svg', alt: 'Comms HQ' },
+  { src: 'assets/client-newnorth.svg', alt: 'New North' },
+  { src: 'assets/client-bysignal.svg', alt: 'Bysignal' },
+  { src: 'assets/client-perksome.svg', alt: 'Perksome' },
 ];
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path}`;
 ---
 
 <section class="pt-8 sm:pt-14">
@@ -37,7 +38,7 @@ const clients = [
     <h2 class="text-[40px] font-normal leading-tight">Our clients</h2>
     <div class="mt-9 flex flex-wrap items-center justify-center gap-x-14 gap-y-8 opacity-55 grayscale">
       {clients.map((client) => (
-        <img src={client.src} alt={client.alt} class="max-h-8 w-auto object-contain" loading="lazy" />
+        <img src={asset(client.src)} alt={client.alt} class="max-h-8 w-auto object-contain" loading="lazy" />
       ))}
     </div>
   </div>

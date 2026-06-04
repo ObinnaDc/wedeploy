@@ -1,17 +1,17 @@
 ---
 const fit = [
   {
-    icon: '/assets/icon-bulb.svg',
+    icon: 'assets/icon-bulb.svg',
     title: 'Startup Founders',
     text: "Have a great idea but don't have the technical skills or deep pockets to hire expensive agencies or developers.",
   },
   {
-    icon: '/assets/icon-briefcase.svg',
+    icon: 'assets/icon-briefcase.svg',
     title: 'C-Level Executives',
     text: 'You have seen an opportunity and have domain expertise but need a cost effective way to test the market.',
   },
   {
-    icon: '/assets/icon-star.svg',
+    icon: 'assets/icon-star.svg',
     title: 'Serial Entrepreneurs',
     text: 'You have experience building & launching multiple businesses and are looking for a new technical partner.',
   },
@@ -25,6 +25,7 @@ const faqs = [
   ['Why are you called Deploy Studio?', 'The name reflects our focus on helping founders move from idea to deployed product quickly.'],
   ['Why choose Deploy Studio?', 'You get an experienced no-code product team, strong communication, and flexible pricing without long hiring cycles.'],
 ];
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path}`;
 ---
 
 <section id="contact" class="bg-white pt-[52px]">
@@ -35,7 +36,7 @@ const faqs = [
     <div class="mt-14 grid gap-10 md:grid-cols-3">
       {fit.map((item) => (
         <article class="mx-auto max-w-[330px]">
-          <img src={item.icon} alt="" class="mx-auto h-7 w-7" loading="lazy" />
+          <img src={asset(item.icon)} alt="" class="mx-auto h-7 w-7" loading="lazy" />
           <h3 class="mt-6 text-[24px] font-normal text-[#424850]">{item.title}</h3>
           <p class="mt-3 text-[16px] leading-[1.45] text-[#343941]">{item.text}</p>
         </article>

@@ -1,3 +1,7 @@
+---
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path}`;
+---
+
 <section
   id="share-idea-form"
   aria-hidden="true"
@@ -5,7 +9,7 @@
 >
   <div class="border-b border-[#e7e9ee]">
     <div class="mx-auto flex h-[78px] max-w-[928px] items-center justify-between px-6">
-      <img src="/assets/deploy-logo.svg" alt="Deploy" class="h-[24px] w-auto" />
+      <img src={asset('assets/deploy-logo.svg')} alt="Deploy" class="h-[24px] w-auto" />
       <button
         type="button"
         data-share-idea-close

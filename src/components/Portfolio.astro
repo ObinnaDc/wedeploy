@@ -4,73 +4,74 @@ const projects = [
     category: 'WEBSITE BUILDER',
     title: 'HomePages',
     text: 'HomePages is a property listing website builder which uses AI to generate copy of listing site you want to build.',
-    image: '/assets/project-bysignal.jpg',
+    image: 'assets/project-bysignal.jpg',
     tools: ['stripe', 'figma'],
   },
   {
     category: 'AFFILIATE MANAGEMENT TOOL',
     title: 'Bysignal',
     text: 'The Ultimate Affiliate Management Tool. Seamless multi-device attribution, enhanced tracking, and robust APIs for smarter affiliate management.',
-    image: '/assets/project-crater.jpg',
+    image: 'assets/project-crater.jpg',
     tools: ['js', 'stripe', 'figma'],
   },
   {
     category: 'MARKETPLACE & DIRECTORY',
     title: 'AgentHMO',
     text: 'AgentHMO marketplace offering property listings, selling support, services directory, and industry news, with user-friendly navigation and expertise in HMO investments.',
-    image: '/assets/project-classicfm.jpg',
+    image: 'assets/project-classicfm.jpg',
     tools: ['zoho', 'zapier', 'wordpress', 'stripe'],
   },
   {
     category: 'DASHBOARD',
     title: 'ClassicFM',
     text: 'Built to help automate processes at a commercial & industrial printing firm to assist with making sure deliveries are on time & on budget.',
-    image: '/assets/project-barterblack.jpg',
+    image: 'assets/project-barterblack.jpg',
     tools: ['stripe', 'googlecloud', 'amazon', 'sage'],
   },
   {
     category: 'AFFILIATE DIRECTORY',
     title: 'Perksome',
     text: 'Reward your community with perks and benefits. Convert more customers with a hundreds of curated business perks. Keep your existing community happy with a local and global deals platform.',
-    image: '/assets/project-dealpage.jpg',
+    image: 'assets/project-dealpage.jpg',
     tools: ['stripe', 'figma'],
   },
   {
     category: 'PROTOTYPE',
     title: 'Crater',
     text: 'Crater is a prototype build for a small art company that wanted to start selling art supplies online with a backend dashboard.',
-    image: '/assets/project-skilltracker.jpg',
+    image: 'assets/project-skilltracker.jpg',
     tools: ['stripe', 'figma'],
   },
   {
     category: 'MARKETPLACE',
     title: 'Barter Black',
     text: 'Transform your business by leveraging the power of bartering. Gain essential services, expand your network, and collaborate within a thriving Black entrepreneurial community.',
-    image: '/assets/project-pixelops.jpg',
+    image: 'assets/project-pixelops.jpg',
     tools: ['stripe', 'figma', 'sendgrid'],
   },
   {
     category: 'PITCH DECKS',
     title: 'Dealpage',
     text: 'Dealpage helps real estate developers raise capital by creating more engaging offering materials that impress investors.',
-    image: '/assets/project-perksome.jpg',
+    image: 'assets/project-perksome.jpg',
     tools: ['stripe', 'figma'],
   },
   {
     category: 'LANDING PAGE',
     title: 'Pixelops',
     text: 'An unlimited graphic design services company that handles services from packaging design to logos and branding, brochures and so much more.',
-    image: '/assets/project-homepages.jpg',
+    image: 'assets/project-homepages.jpg',
     tools: ['openai', 'figma'],
   },
   {
     category: 'PLAYER TRACKER',
     title: 'Skilltracker',
     text: 'Skilltracker is an all-in one player development platform that helps coaches and managers track player development, share insights with players and their parents, and improve team performance.',
-    image: '/assets/project-agenthmo.jpg',
+    image: 'assets/project-agenthmo.jpg',
     tools: ['stripe', 'openai', 'figma'],
   },
 ];
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path}`;
 
 const toolMarks = {
   stripe: '<span class="text-[13px] font-bold text-[#635bff]">stripe</span>',
@@ -97,7 +98,7 @@ const toolMarks = {
     {projects.map((project) => (
       <article class="group flex min-h-[492px] w-[420px] shrink-0 flex-col overflow-hidden rounded-[14px] border border-[#dfe5ed] bg-white transition duration-200 hover:-translate-y-1 hover:border-[#b7d8ff] hover:shadow-[0_22px_55px_rgba(8,119,232,0.12)] sm:w-[432px]">
         <div class="flex h-[252px] items-center justify-center border-b border-[#f1f3f6] bg-white px-8 py-6">
-          <img src={project.image} alt={`${project.title} project preview`} class="max-h-full w-full object-contain" loading="lazy" />
+          <img src={asset(project.image)} alt={`${project.title} project preview`} class="max-h-full w-full object-contain" loading="lazy" />
         </div>
         <div class="flex flex-1 flex-col px-8 pb-5 pt-8">
           <p class="text-[13px] font-normal uppercase leading-none text-[#005fff]">{project.category}</p>
