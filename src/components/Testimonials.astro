@@ -1,34 +1,24 @@
 ---
 const testimonials = [
   {
-    name: 'Ken Savage',
-    role: 'The Product Launch Guy',
-    quote: "There's 2 things I need from a bubble developer... communication and knowledge. Ebuka and Yinka and their team have been very capable of developing anything I've dreamed up. I appreciate your work and helping me take my ideas and horrible explanations and put it into working MVPs.",
-    avatar: '/assets/avatar-user.png',
-  },
-  {
-    name: 'Pixelops',
-    role: 'Pixelops Team',
-    quote: "I love the design fidelity I received for my build. I'd happily recommend this dev team. They know what they are doing!",
-    mark: 'P',
-  },
-  {
     name: 'Hampton Founder',
     role: '$2 billion in exits',
     quote: 'Quickly understood the project and very independent in delivering it. Helped make an idea into something real that helped us understand whether the product was viable.',
     avatar: '/assets/avatar-user.png',
   },
   {
-    name: 'Nicole Murphy',
-    role: 'Founder and CEO Barter Black',
-    quote: "I don't think I could have chose a better team for my project. With all the complex request my site requires, they took it all on like pros! I absolutely loved having several people working on multiple task making completely it as efficient as possible.",
-    avatar: '/assets/avatar-nicole.jpeg',
-  },
-  {
     name: 'Skill3',
     role: 'Copenhagen Startup',
     quote: 'I think the Deploy Studio team are good at listening to the feedback we have. At the same time I think you have been quick and effective.',
     logo: '/assets/skill3-logo.svg',
+    preview: '/assets/project-skilltracker.jpg',
+  },
+  {
+    name: 'Pixelops',
+    role: 'Pixelops Team',
+    quote: "I love the design fidelity I received for my build. I'd happily recommend this dev team. They know what they are doing!",
+    avatar: '/assets/avatar-pixelops.png',
+    preview: '/assets/project-homepages.jpg',
   },
   {
     name: 'Fintech Founder',
@@ -39,8 +29,34 @@ const testimonials = [
   {
     name: 'Daniel Bevan',
     role: 'CEO, Daniel Bevan Designs',
-    quote: "Deploy Studio allows experienced developers like myself to focus on core functionality and product optimization while they spend time building in the editor and producing high-fidelity Figma designs. The team leaders are fantastic communicators that help everyone involved get on the same page. I'll be working with these guys for a very long time!",
-    avatar: '/assets/avatar-daniel.png',
+    quote: [
+      'Deploy Studio allows experienced developers like myself to focus on core functionality and product optimization while they spend time building in the editor and producing high-fidelity Figma designs.',
+      "The team leaders are fantastic communicators that help everyone involved get on the same page. I'll be working with these guys for a very long time!",
+    ],
+    avatar: '/assets/avatar-daniel-bevan.jpeg',
+    preview: '/assets/project-bysignal.jpg',
+    largeAvatar: true,
+  },
+  {
+    name: 'Nicole Murphy',
+    role: 'Founder and CEO Barter Black',
+    quote: [
+      "I don't think I could have chose a better team for my project. With all the complex request my site requires, they took it all on like pros!",
+      'I absolutely loved having several people working on multiple task making completely it as efficient as possible.',
+      "I won't be going anywhere and they will always take care of any platforms I decide to built.",
+    ],
+    avatar: '/assets/avatar-nicole-murphy.jpeg',
+    preview: '/assets/testimonial-nicole-preview.png',
+    featuredProfile: true,
+    featuredPreview: true,
+  },
+  {
+    name: 'Ken Savage',
+    role: 'The Product Launch Guy',
+    quote: "There's 2 things I need from a bubble developer... communication and knowledge. Ebuka and Yinka and their team have been very capable of developing anything I've dreamed up. I appreciate your work and helping me take my ideas and horrible explanations and put it into working MVPs.",
+    avatar: '/assets/avatar-ken-savage.jpg',
+    preview: '/assets/project-dealpage.jpg',
+    largeAvatar: true,
   },
 ];
 ---
@@ -51,17 +67,46 @@ const testimonials = [
 
     <div class="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3">
       {testimonials.map((item) => (
-        <article class="mb-6 break-inside-avoid rounded-[10px] border border-deploy-line bg-white p-6 shadow-soft">
+        <article class="mb-6 break-inside-avoid rounded-[10px] border border-deploy-line bg-white p-5 shadow-soft">
           <div class="flex items-center gap-3">
-            {item.avatar && <img src={item.avatar} alt="" class="h-10 w-10 rounded-full object-cover" loading="lazy" />}
-            {item.logo && <img src={item.logo} alt="" class="h-9 w-12 object-contain" loading="lazy" />}
-            {item.mark && <div class="flex h-10 w-10 items-center justify-center rounded-full bg-black text-[28px] font-bold text-white">{item.mark}</div>}
+            {item.avatar && (
+              <img
+                src={item.avatar}
+                alt=""
+                class:list={[
+                  'rounded-full object-cover',
+                  item.featuredProfile || item.largeAvatar ? 'h-12 w-12' : 'h-8 w-8',
+                ]}
+                loading="lazy"
+              />
+            )}
+            {item.logo && <img src={item.logo} alt="" class="h-7 w-11 object-contain" loading="lazy" />}
+            {item.mark && <div class="flex h-8 w-8 items-center justify-center rounded-full bg-black text-[23px] font-bold text-white">{item.mark}</div>}
             <div>
-              <h3 class="text-[16px] font-bold">{item.name}</h3>
-              <p class="text-[16px] text-[#73777f]">{item.role}</p>
+              <h3 class="text-[14px] font-bold leading-tight">{item.name}</h3>
+              <p class="text-[14px] text-[#73777f]">{item.role}</p>
             </div>
           </div>
-          <p class="mt-5 text-[16px] leading-[1.45] text-[#343941]">{item.quote}</p>
+          {Array.isArray(item.quote) ? (
+            <div class="mt-5 space-y-5 text-[16px] leading-[1.45] text-[#243044]">
+              {item.quote.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+          ) : (
+            <p class="mt-5 text-[16px] leading-[1.45] text-[#243044]">{item.quote}</p>
+          )}
+          {item.preview && (
+            <div class="mt-5 flex h-11 items-end">
+              <img
+                src={item.preview}
+                alt={`${item.name} project preview`}
+                class:list={[
+                  '-rotate-6 rounded-[2px] object-cover object-top shadow-[0_8px_18px_rgba(15,23,42,0.12)]',
+                  item.featuredPreview ? 'h-[50px] w-[64px]' : 'h-8 w-16',
+                ]}
+                loading="lazy"
+              />
+            </div>
+          )}
         </article>
       ))}
     </div>

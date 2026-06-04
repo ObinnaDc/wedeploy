@@ -3,6 +3,7 @@ const plans = [
   {
     name: 'Lite',
     price: '$1,000',
+    quarterlyPrice: '$2,600',
     cta: 'Subscribe to lite',
     features: ['Existing projects', 'Unlimited development requests', 'One request at a time', 'Slack communication', 'Pause or cancel anytime', '2-3 days turnaround'],
     featured: false,
@@ -10,6 +11,7 @@ const plans = [
   {
     name: 'Pro',
     price: '$3,000',
+    quarterlyPrice: '$7,000',
     cta: 'Subscribe to pro',
     features: ['New and Existing Projects', 'Expert UI/UX Design', 'Priority support', 'Unlimited development requests', 'Two or more requests at a time', 'Slack communication', 'Pause or cancel anytime', '1-3 days turnaround'],
     featured: true,
@@ -24,21 +26,48 @@ const plans = [
       Get started right away and connect with your assigned project team for your project.
     </p>
     <div class="mx-auto mt-8 flex w-fit rounded-[10px] border border-deploy-line bg-white p-1">
-      <button class="rounded-[8px] bg-deploy-navy px-5 py-2.5 text-[15px] font-bold text-white">Monthly</button>
-      <button class="px-6 py-2.5 text-[15px] text-[#4d535b]">Quarterly</button>
+      <button
+        type="button"
+        data-pricing-toggle="monthly"
+        class="rounded-[8px] bg-deploy-navy px-5 py-2.5 text-[15px] font-bold text-white"
+      >
+        Monthly
+      </button>
+      <button
+        type="button"
+        data-pricing-toggle="quarterly"
+        class="rounded-[8px] px-6 py-2.5 text-[15px] text-[#4d535b]"
+      >
+        Quarterly
+      </button>
     </div>
   </div>
 
-  <div class="mx-auto mt-12 grid max-w-[860px] gap-4 px-6 md:grid-cols-2">
+  <div class="mx-auto mt-12 grid max-w-[860px] items-stretch gap-4 px-6 md:grid-cols-2">
     {plans.map((plan) => (
       <article
+        data-pricing-card
         class:list={[
-          'rounded-[12px] border p-6 sm:p-7',
+          'relative flex h-full min-h-[520px] flex-col rounded-[12px] border p-6 sm:p-7',
           plan.featured ? 'border-[#c5d9f7] bg-deploy-pro text-deploy-blue' : 'border-deploy-blue bg-white text-deploy-ink',
         ]}
       >
+        <span
+          data-quarterly-badge
+          class:list={[
+            'absolute right-5 top-6 hidden rounded-full px-3 py-1.5 text-[12px] font-bold text-white',
+            plan.featured ? 'bg-[#005fff]' : 'bg-deploy-navy',
+          ]}
+        >
+          Save 15%
+        </span>
         <h3 class="text-[23px] font-normal">{plan.name}</h3>
-        <p class="mt-5 text-[32px] font-normal">{plan.price}</p>
+        <p class:list={['mt-5 font-normal', plan.featured ? 'text-[32px]' : 'text-[32px] text-black']}>
+          <span data-monthly-price={plan.price} data-quarterly-price={plan.quarterlyPrice}>{plan.price}</span>
+          <span data-quarterly-cadence class:list={['hidden text-[11px]', plan.featured ? 'text-deploy-blue' : 'text-[#111827]']}>
+            every three months
+          </span>
+        </p>
         <div class:list={['my-8 h-px', plan.featured ? 'bg-[#bfd1ed]' : 'bg-deploy-line']}></div>
         <ul class="space-y-4 text-left">
           {plan.features.map((feature) => (
@@ -51,7 +80,7 @@ const plans = [
         <a
           href="#contact"
           class:list={[
-            'mt-9 inline-flex w-full justify-center rounded-[8px] px-5 py-3.5 text-[15px] font-bold transition',
+            'mt-auto inline-flex w-full justify-center rounded-[8px] px-5 py-3.5 text-[15px] font-bold transition',
             plan.featured ? 'bg-deploy-blue text-white hover:bg-deploy-navy' : 'bg-deploy-navy text-white hover:bg-deploy-blue',
           ]}
         >
@@ -61,3 +90,35 @@ const plans = [
     ))}
   </div>
 </section>
+
+<script>
+  const pricingButtons = document.querySelectorAll('[data-pricing-toggle]');
+  const priceNodes = document.querySelectorAll('[data-monthly-price]');
+  const cadenceNodes = document.querySelectorAll('[data-quarterly-cadence]');
+  const badges = document.querySelectorAll('[data-quarterly-badge]');
+
+  const setPricing = (mode) => {
+    const isQuarterly = mode === 'quarterly';
+
+    pricingButtons.forEach((button) => {
+      const active = button.getAttribute('data-pricing-toggle') === mode;
+      button.classList.toggle('bg-deploy-navy', active);
+      button.classList.toggle('text-white', active);
+      button.classList.toggle('font-bold', active);
+      button.classList.toggle('text-[#4d535b]', !active);
+    });
+
+    priceNodes.forEach((node) => {
+      node.textContent = isQuarterly
+        ? node.getAttribute('data-quarterly-price')
+        : node.getAttribute('data-monthly-price');
+    });
+
+    cadenceNodes.forEach((node) => node.classList.toggle('hidden', !isQuarterly));
+    badges.forEach((badge) => badge.classList.toggle('hidden', !isQuarterly));
+  };
+
+  pricingButtons.forEach((button) => {
+    button.addEventListener('click', () => setPricing(button.getAttribute('data-pricing-toggle') || 'monthly'));
+  });
+</script>
