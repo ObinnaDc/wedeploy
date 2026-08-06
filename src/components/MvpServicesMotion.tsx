@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 const services = [
   {
@@ -26,16 +26,35 @@ const services = [
 
 export default function MvpServicesMotion({ base }: { base: string }) {
   const reduceMotion = useReducedMotion();
-  const enter = reduceMotion ? {} : { opacity: 0, y: 22 };
+  const textRef = React.useRef<HTMLDivElement | null>(null);
+  const cardsRef = React.useRef<HTMLDivElement | null>(null);
+  const textInView = useInView(textRef, { once: true, amount: 0.45 });
+  const cardsInView = useInView(cardsRef, { once: true, amount: 0.2 });
+  const [canAnimate, setCanAnimate] = React.useState(false);
+
+  React.useEffect(() => {
+    setCanAnimate(true);
+  }, []);
+
+  const textState = reduceMotion || !canAnimate
+    ? { opacity: 1, y: 0 }
+    : textInView
+      ? { opacity: 1, y: 0 }
+      : { opacity: 0, y: 22 };
+
+  const cardVariants = {
+    hidden: reduceMotion || !canAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <section className="bg-[#fbfbfc] py-[86px]">
       <div className="mx-auto grid max-w-[1120px] gap-10 px-6 lg:grid-cols-[0.92fr_1.55fr] xl:px-0">
         <motion.div
+          ref={textRef}
           className="max-w-[390px]"
-          initial={enter}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.45 }}
+          initial={false}
+          animate={textState}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 className="text-[40px] font-normal leading-[1.05] max-[770px]:text-[28px] max-[770px]:leading-[28px]">From MVPs to full fledged web apps</h2>
@@ -45,10 +64,10 @@ export default function MvpServicesMotion({ base }: { base: string }) {
         </motion.div>
 
         <motion.div
+          ref={cardsRef}
           className="grid gap-4 sm:grid-cols-2"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          initial={false}
+          animate={cardsInView || !canAnimate ? 'visible' : 'hidden'}
           variants={{
             hidden: {},
             visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.09 } },
@@ -58,10 +77,7 @@ export default function MvpServicesMotion({ base }: { base: string }) {
             <motion.article
               key={service.title}
               className="min-h-[188px] rounded-[8px] border border-deploy-line bg-white p-6 shadow-soft"
-              variants={{
-                hidden: reduceMotion ? {} : { opacity: 0, y: 18 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              variants={cardVariants}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               whileHover={reduceMotion ? {} : { y: -4, boxShadow: '0 14px 32px rgba(18, 31, 53, 0.09)' }}
             >
