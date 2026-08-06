@@ -12,6 +12,11 @@ import ShareIdeaForm from '../components/ShareIdeaForm.astro';
 import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://obinnadc.github.io';
+const canonicalUrl = new URL(base, siteUrl).toString();
+const pageTitle = 'Bring your ideas to life in the fastest way possible | Deploy Studio';
+const pageDescription =
+  'Bring your ideas to life in the fastest way possible with Deploy Studio. We connect you to an expert product team for custom software, MVPs, and full web apps in weeks instead of months.';
 ---
 
 <!doctype html>
@@ -19,12 +24,21 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Deploy Studio connects founders to an expert product team that builds custom software fast with no-code."
-    />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-    <title>Deploy Studio</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Deploy Studio" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}${base}favicon.svg`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={`${siteUrl}${base}favicon.svg`} />
   </head>
   <body>
     <Navbar />
