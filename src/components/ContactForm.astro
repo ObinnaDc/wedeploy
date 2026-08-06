@@ -31,7 +31,7 @@ const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')
 <section id="contact" class="bg-white pt-[52px]">
   <div class="mx-auto max-w-[1120px] px-6 text-center xl:px-0">
     <p class="text-[14px] font-normal uppercase tracking-[0.08em] text-deploy-blue">Reach out to us</p>
-    <h2 class="mt-4 text-[40px] font-normal leading-tight">We are a great fit for you</h2>
+    <h2 class="mt-4 text-[40px] font-normal leading-tight max-[770px]:text-[28px] max-[770px]:leading-[33.6px]">We are a great fit for you</h2>
 
     <div class="mt-14 grid gap-10 md:grid-cols-3">
       {fit.map((item) => (
@@ -46,7 +46,7 @@ const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')
 
   <div class="mt-[104px] bg-[#fbfbfc] py-[82px]">
     <div class="mx-auto max-w-[840px] px-6">
-      <h2 class="text-center text-[40px] font-normal leading-tight">Frequently asked questions</h2>
+      <h2 class="text-center text-[40px] font-normal leading-tight max-[770px]:text-[28px] max-[770px]:leading-[33.6px]">Frequently asked questions</h2>
       <div class="mt-10 space-y-2">
         {faqs.map(([question, answer], index) => (
           <details class="group rounded-[10px] border border-deploy-line bg-white p-4 open:pb-6" open={index === 0}>
@@ -70,7 +70,9 @@ const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')
         Your product ideas can start coming to life in weeks instead of months. Embrace the journey ahead and turn your ideas into a reality!
       </p>
       <a
-        href="mailto:hello@wedeploy.studio"
+        href="https://cal.com/deploystudio/discovery-call"
+        target="_blank"
+        rel="noopener noreferrer"
         class="mt-10 inline-flex items-center gap-3 rounded-[8px] bg-deploy-blue px-6 py-4 text-[16px] font-bold text-white transition hover:bg-white hover:text-deploy-navy"
       >
         <span aria-hidden="true">&#9742;</span>

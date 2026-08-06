@@ -10,6 +10,8 @@ import Pricing from '../components/Pricing.astro';
 import ContactForm from '../components/ContactForm.astro';
 import ShareIdeaForm from '../components/ShareIdeaForm.astro';
 import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <!doctype html>
@@ -21,6 +23,7 @@ import Footer from '../components/Footer.astro';
       name="description"
       content="Deploy Studio connects founders to an expert product team that builds custom software fast with no-code."
     />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <title>Deploy Studio</title>
   </head>
   <body>

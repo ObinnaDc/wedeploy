@@ -5,6 +5,7 @@ const projects = [
     title: 'HomePages',
     text: 'HomePages is a property listing website builder which uses AI to generate copy of listing site you want to build.',
     image: 'assets/project-bysignal.jpg',
+    href: 'https://go.homepages.io/',
     tools: ['stripe', 'figma'],
   },
   {
@@ -12,6 +13,7 @@ const projects = [
     title: 'Bysignal',
     text: 'The Ultimate Affiliate Management Tool. Seamless multi-device attribution, enhanced tracking, and robust APIs for smarter affiliate management.',
     image: 'assets/project-crater.jpg',
+    href: 'https://bysignal.com/',
     tools: ['js', 'stripe', 'figma'],
   },
   {
@@ -19,6 +21,7 @@ const projects = [
     title: 'AgentHMO',
     text: 'AgentHMO marketplace offering property listings, selling support, services directory, and industry news, with user-friendly navigation and expertise in HMO investments.',
     image: 'assets/project-classicfm.jpg',
+    href: 'https://www.agenthmo.co.uk/',
     tools: ['zoho', 'zapier', 'wordpress', 'stripe'],
   },
   {
@@ -33,6 +36,7 @@ const projects = [
     title: 'Perksome',
     text: 'Reward your community with perks and benefits. Convert more customers with a hundreds of curated business perks. Keep your existing community happy with a local and global deals platform.',
     image: 'assets/project-dealpage.jpg',
+    href: 'https://perksome.co/',
     tools: ['stripe', 'figma'],
   },
   {
@@ -47,6 +51,7 @@ const projects = [
     title: 'Barter Black',
     text: 'Transform your business by leveraging the power of bartering. Gain essential services, expand your network, and collaborate within a thriving Black entrepreneurial community.',
     image: 'assets/project-pixelops.jpg',
+    href: 'https://barterblack.io/',
     tools: ['stripe', 'figma', 'sendgrid'],
   },
   {
@@ -54,6 +59,7 @@ const projects = [
     title: 'Dealpage',
     text: 'Dealpage helps real estate developers raise capital by creating more engaging offering materials that impress investors.',
     image: 'assets/project-perksome.jpg',
+    href: 'https://app.dealpage.io/',
     tools: ['stripe', 'figma'],
   },
   {
@@ -61,6 +67,7 @@ const projects = [
     title: 'Pixelops',
     text: 'An unlimited graphic design services company that handles services from packaging design to logos and branding, brochures and so much more.',
     image: 'assets/project-homepages.jpg',
+    href: 'https://pixelops.design/',
     tools: ['openai', 'figma'],
   },
   {
@@ -90,13 +97,36 @@ const toolMarks = {
 
 <section id="work" class="overflow-hidden bg-white py-[94px]">
   <div class="mx-auto max-w-[1120px] px-6 xl:px-0">
-    <h2 class="text-[40px] font-normal leading-tight">Some past work</h2>
+    <h2 class="text-[40px] font-normal leading-tight max-[770px]:text-[28px] max-[770px]:leading-[28px]">Some past work</h2>
     <p class="mt-2 text-[16px] text-[#4d535b]">Take a look at some of our work</p>
   </div>
 
   <div class="hide-scrollbar mx-auto mt-12 flex max-w-[1120px] gap-7 overflow-x-auto px-6 pb-5 xl:px-0">
     {projects.map((project) => (
       <article class="group flex min-h-[492px] w-[420px] shrink-0 flex-col overflow-hidden rounded-[14px] border border-[#dfe5ed] bg-white transition duration-200 hover:-translate-y-1 hover:border-[#b7d8ff] hover:shadow-[0_22px_55px_rgba(8,119,232,0.12)] sm:w-[432px]">
+        {project.href ? (
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.title}`}
+            class="flex h-full flex-col"
+          >
+            <div class="flex h-[252px] items-center justify-center border-b border-[#f1f3f6] bg-white px-8 py-6">
+              <img src={asset(project.image)} alt={`${project.title} project preview`} class="max-h-full w-full object-contain" loading="lazy" />
+            </div>
+            <div class="flex flex-1 flex-col px-8 pb-5 pt-8">
+              <p class="text-[13px] font-normal uppercase leading-none text-[#005fff]">{project.category}</p>
+              <h3 class="mt-4 text-[25px] font-normal leading-tight text-[#06080f]">{project.title}</h3>
+              <p class="mt-3 text-[17px] leading-[1.38] text-[#565b63]">{project.text}</p>
+              <div class="mt-auto flex h-8 items-end gap-7 pt-7">
+                {project.tools.map((tool) => (
+                  <span class="inline-flex h-6 items-center" set:html={toolMarks[tool]} />
+                ))}
+              </div>
+            </div>
+          </a>
+        ) : (
         <div class="flex h-[252px] items-center justify-center border-b border-[#f1f3f6] bg-white px-8 py-6">
           <img src={asset(project.image)} alt={`${project.title} project preview`} class="max-h-full w-full object-contain" loading="lazy" />
         </div>
@@ -110,6 +140,7 @@ const toolMarks = {
             ))}
           </div>
         </div>
+        )}
       </article>
     ))}
   </div>

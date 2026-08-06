@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <!doctype html>
@@ -9,6 +11,7 @@ import Footer from '../components/Footer.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <meta
       name="description"
       content="Reach out to Deploy Studio to discuss your product idea, project, or collaboration."
@@ -92,7 +95,9 @@ import Footer from '../components/Footer.astro';
             Your product ideas can start coming to life in weeks instead of months. Embrace the journey ahead and turn your ideas into a reality!
           </p>
           <a
-            href="mailto:hello@wedeploy.studio"
+            href="https://cal.com/deploystudio/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
             class="mt-8 inline-flex items-center gap-2 rounded-[6px] bg-deploy-blue px-5 py-3 text-[12px] font-bold text-white transition hover:bg-white hover:text-deploy-navy"
           >
             <span aria-hidden="true">&#9742;</span>

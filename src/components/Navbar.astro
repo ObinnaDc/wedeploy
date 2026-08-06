@@ -9,6 +9,10 @@ const links = [
   { label: 'Home', href: base, key: 'home' },
   { label: 'Contact Us', href: `${base}contact-us/`, key: 'contact' },
 ];
+const cta = {
+  label: 'Book a call',
+  href: 'https://cal.com/deploystudio/discovery-call',
+};
 const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path}`;
 ---
 
@@ -17,7 +21,7 @@ const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')
     <img src={asset('assets/deploy-logo.svg')} alt="Deploy" class="h-[32px] w-auto" />
   </a>
 
-  <nav class="hidden items-center gap-8 text-[16px] sm:flex">
+  <nav class="hidden items-center gap-8 text-[16px] min-[771px]:flex">
     {links.map((link, index) => (
       <a
         href={link.href}
@@ -32,9 +36,138 @@ const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')
   </nav>
 
   <a
-    href={`${base}contact-us/`}
-    class="rounded-[8px] bg-[#141a37] px-5 py-3.5 text-[15px] font-bold text-white transition hover:bg-deploy-blue"
+    href={cta.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="hidden rounded-[8px] bg-[#141a37] px-5 py-3.5 text-[15px] font-bold text-white transition hover:bg-deploy-blue min-[771px]:inline-flex"
   >
-    Book a call
+    {cta.label}
   </a>
+
+  <button
+    type="button"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-nav-overlay"
+    data-mobile-nav-toggle
+    class="relative flex h-11 w-11 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#141a37] transition hover:border-[#cbd5e1] hover:bg-[#f8fafc] min-[771px]:hidden"
+  >
+    <span class="sr-only">Toggle navigation</span>
+    <span class="pointer-events-none relative h-4 w-5">
+      <span class="absolute left-0 top-0 h-[2px] w-5 rounded-full bg-current transition-transform duration-300 ease-out" data-mobile-nav-line="top"></span>
+      <span class="absolute left-0 top-[7px] h-[2px] w-5 rounded-full bg-current transition-all duration-300 ease-out" data-mobile-nav-line="middle"></span>
+      <span class="absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-current transition-transform duration-300 ease-out" data-mobile-nav-line="bottom"></span>
+    </span>
+  </button>
 </header>
+
+<div
+  id="mobile-nav-overlay"
+  data-mobile-nav-overlay
+  class="pointer-events-none fixed inset-0 z-50 translate-x-full bg-[#FFFFFF] text-[#141a37] opacity-0 transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] min-[771px]:hidden"
+  aria-hidden="true"
+>
+  <div class="flex h-full flex-col px-6 pt-8 pb-10">
+    <div class="flex items-center justify-between">
+      <a href={base} aria-label="Deploy Studio home" class="shrink-0">
+        <img src={asset('assets/deploy-logo.svg')} alt="Deploy" class="h-[32px] w-auto" />
+      </a>
+      <button
+        type="button"
+        aria-label="Close navigation menu"
+        data-mobile-nav-toggle
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-[#e5e7eb] bg-white text-[#141a37] transition hover:border-[#cbd5e1] hover:bg-[#f8fafc]"
+      >
+        <span class="sr-only">Close navigation</span>
+        <span class="pointer-events-none relative h-4 w-5">
+          <span class="absolute left-0 top-[7px] h-[2px] w-5 rotate-45 rounded-full bg-current"></span>
+          <span class="absolute left-0 top-[7px] h-[2px] w-5 -rotate-45 rounded-full bg-current"></span>
+        </span>
+      </button>
+    </div>
+
+    <nav class="mt-12 flex flex-col items-start gap-5 text-left">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          data-mobile-nav-link
+          class:list={[
+            'translate-x-6 opacity-0 text-[34px] leading-[1.1] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+            link.key === current ? 'font-bold text-[#141a37]' : 'font-normal text-[#5b5f66]',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href={cta.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-auto inline-flex w-full items-center justify-center rounded-[8px] bg-[#141a37] px-5 py-3.5 text-[15px] font-bold text-white transition hover:bg-deploy-blue"
+    >
+      {cta.label}
+    </a>
+  </div>
+</div>
+
+<script>
+  const body = document.body;
+  const overlay = document.querySelector('[data-mobile-nav-overlay]');
+  const toggles = document.querySelectorAll('[data-mobile-nav-toggle]');
+  const navLinks = document.querySelectorAll('[data-mobile-nav-link]');
+  const menuButton = document.querySelector('header [data-mobile-nav-toggle]');
+  const topLine = menuButton?.querySelector('[data-mobile-nav-line="top"]');
+  const middleLine = menuButton?.querySelector('[data-mobile-nav-line="middle"]');
+  const bottomLine = menuButton?.querySelector('[data-mobile-nav-line="bottom"]');
+  let isOpen = false;
+
+  const syncMenuState = () => {
+    if (!overlay || !menuButton) return;
+
+    overlay.classList.toggle('pointer-events-none', !isOpen);
+    overlay.classList.toggle('translate-x-full', !isOpen);
+    overlay.classList.toggle('opacity-0', !isOpen);
+    overlay.classList.toggle('translate-x-0', isOpen);
+    overlay.classList.toggle('opacity-100', isOpen);
+    overlay.setAttribute('aria-hidden', String(!isOpen));
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    body.style.overflow = isOpen ? 'hidden' : '';
+
+    topLine?.classList.toggle('translate-y-[7px]', isOpen);
+    topLine?.classList.toggle('rotate-45', isOpen);
+    middleLine?.classList.toggle('opacity-0', isOpen);
+    bottomLine?.classList.toggle('-translate-y-[7px]', isOpen);
+    bottomLine?.classList.toggle('-rotate-45', isOpen);
+
+    navLinks.forEach((link, index) => {
+      link.classList.toggle('opacity-0', !isOpen);
+      link.classList.toggle('translate-x-6', !isOpen);
+      link.classList.toggle('opacity-100', isOpen);
+      link.classList.toggle('translate-x-0', isOpen);
+      link.setAttribute('style', isOpen ? `transition-delay:${100 + index * 90}ms` : 'transition-delay:0ms');
+    });
+  };
+
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+    syncMenuState();
+  };
+
+  const closeMenu = () => {
+    if (!isOpen) return;
+    isOpen = false;
+    syncMenuState();
+  };
+
+  toggles.forEach((toggle) => toggle.addEventListener('click', toggleMenu));
+  navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 770) closeMenu();
+  });
+</script>
