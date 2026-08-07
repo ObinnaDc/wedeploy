@@ -1,0 +1,9 @@
+node_modules
+dist
+.astro
+.pnpm-store
+.git
+.gitignore
+.astro-dev.err.log
+.astro-dev.out.log
+pnpm-workspace.yaml
