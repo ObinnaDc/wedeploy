@@ -10,6 +10,7 @@
     "start": "serve dist -l tcp://0.0.0.0:$PORT"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@astrojs/react": "^3.6.3",
     "@astrojs/tailwind": "^5.1.5",
     "astro": "^4.16.18",
